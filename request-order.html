@@ -1,26 +1,219 @@
 <!DOCTYPE html>
-<html>
-    <head> 
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="addtocart.css">
-        <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div class="header">
-            <p class="logo">Cinnabon</p>
-            <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
-        </div>
-        <div class="container">
-            <div id="root"></div>
-            <div class="sidebar">
-                <div class="head"><p>الطلبات</p></div>
-                <div id="cartItem">فارغ</div>
-                <div class="foot">
-                    <h3>Total</h3>
-                    <h2 id="total">ج0.00</h2>
-                </div>
-            </div>
-        </div>
-        <script src="addtocart.js"></script>
-    </body>
+<html lang="en">
+<head>
+  <style>
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+#menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#cart {
+  text-align: center;
+}
+
+#cart-items {
+  list-style-type: none;
+  padding: 0;
+}
+
+#cart-items li {
+  margin-bottom: 5px;
+}
+  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>قائمة المطعم</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>قائمة سينابون</h1>
+
+
+
+<div id="menu">
+  <div class="item">
+    <h3>وافل</h3>
+    <p>سعر: 45 جنيها</p>
+    <button onclick="addToCart('وافل', 45)">اضف للسلة</button>
+  </div>
+  
+  <div class="item">
+    <h3>بوكس السعادة </h3>
+    <p>وافل + ميني دونات + ميني بان كيك - سعر: 60 جنيها</p>
+    <button onclick="addToCart('بوكس السعادة ', 60)">اضف للسلة</button>
+  </div>
+  <div class="item">
+    <h3>بوكس السعادة </h3>
+    <p>وافل + ميني بان كيك - سعر: 60 جنيها</p>
+    <button onclick="addToCart('بوكس السعادة ', 60)">اضف للسلة</button>
+  </div>
+ 
+  <div class="item">
+    <h3>بوكس السعادة </h3>
+    <p>25 قطعة بان كيك - سعر: 60 جنيها</p>
+    <button onclick="addToCart('بوكس السعادة ', 60)">اضف للسلة</button>
+  </div>
+  <div class="item">
+    <h3>بوكس السعادة </h3>
+    <p>15 قطعة ميني دونات - سعر: 60 جنيها</p>
+    <button onclick="addToCart('بوكس السعادة ', 60)">اضف للسلة</button>
+  </div>
+  <div class="item">
+    <h3>بوكس السعادة </h3>
+    <p>عيش كريب + وافل + بان كيك + فاج كيك + ايس كريم - سعر: 60 جنيها</p>
+    <button onclick="addToCart('بوكس السعادة ', 60)">اضف للسلة</button>
+  </div>
+  <div class="item">
+    <h3>بوكس السعادة </h3>
+    <p> ميني دونات +  ميني بان كيك - سعر: 60 جنيها</p>
+    <button onclick="addToCart('بوكس السعادة ', 60)">اضف للسلة</button>
+  </div>
+  <div class="item">
+    <h3>بوكس سمك</h3>
+    <p>سعر: 60 جنيها</p>
+    <button onclick="addToCart('بوكس سمك', 60)">اضف للسلة</button>
+  </div>
+  <div class="item">
+    <h3>سينابون</h3>
+    <p>سعر: 45 جنيها</p>
+    <button onclick="addToCart('سينابون', 45)">اضف للسلة</button>
+  </div>
+  <div class="item">
+    <h3>مولتن كيك</h3>
+    <p>سعر: 45 جنيها</p>
+    <button onclick="addToCart('مولتن كيك', 45)">اضف للسلة</button>
+  </div>
+  <div class="item">
+    <h3>تشيز كيك</h3>
+    <p>سعر: 45 جنيها</p>
+    <button onclick="addToCart('تشيز كيك', 45)">اضف للسلة</button>
+  </div>
+  <div class="item">
+    <h3>دونات</h3>
+    <p>سعر: 20 جنيها</p>
+    <button onclick="addToCart('دونات', 20)">اضف للسلة</button>
+  </div>
+  <div class="item">
+    <h3>كوكيز</h3>
+    <p>سعر: 25 جنيها</p>
+    <button onclick="addToCart('كوكيز', 25)">اضف للسلة</button>
+  </div>
+  <div class="item">
+    <h3>ديسباسيتو</h3>
+    <p>سعر: 45 جنيها</p>
+    <button onclick="addToCart('ديسباسيتو', 45)">اضف للسلة</button>
+  </div>
+  <div class="item">
+    <h3>ميلك تشيك</h3>
+    <p>سعر: 45 جنيها</p>
+    <button onclick="addToCart('ميلك تشيك', 45)">اضف للسلة</button>
+  </div>
+  <!-- يمكنك إضافة المزيد من العناصر هنا -->
+</div>
+
+<div id="cart">
+  <h2>السلة</h2>
+  <ul id="cart-items">
+    <!-- هنا سيتم إضافة العناصر المحددة -->
+     <p id="total-price">مجموع السعر: 0 جنيه</p>
+    
+  </ul>
+  <label for="city">اختر المحافظة:</label>
+<select id="city" name="city">
+  <option value="المنيا">المنيا</option>
+  <option value="بني سويف ">بني سويف </option>
+  <option value="الفيوم "> الفيوم </option>
+  <!-- إضافة خيارات المحافظات الأخرى هنا -->
+</select>
+  
+  <button onclick="sendOrder()">ارسال الطلب</button>
+</div>
+
+  
+  
+<script>
+  function calculateTotalPrice() {
+  const cartItems = document.getElementById('cart-items').getElementsByTagName('li');
+  let totalPrice = 0;
+  for (let i = 0; i < cartItems.length; i++) {
+    const itemPrice = parseInt(cartItems[i].textContent.match(/\d+/)[0]);
+    totalPrice += itemPrice;
+  }
+  document.getElementById('total-price').textContent = `مجموع السعر: ${totalPrice} جنيه`;
+}
+
+function addToCart(itemName, itemPrice) {
+  const cartItems = document.getElementById('cart-items');
+  const li = document.createElement('li');
+  li.textContent = `${itemName} - ${itemPrice} جنيها`;
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'حذف';
+  deleteButton.onclick = function() {
+    cartItems.removeChild(li);
+    calculateTotalPrice();
+  };
+  li.appendChild(deleteButton);
+  cartItems.appendChild(li);
+  calculateTotalPrice();
+}
+
+function sendOrder() {
+  const cartItems = document.getElementById('cart-items').getElementsByTagName('li');
+  if (cartItems.length === 0) {
+    alert('يرجى إضافة عناصر إلى السلة قبل إرسال الطلب.');
+    return; // يتوقف البرنامج عن الاستمرار في إرسال الطلب
+  }
+  let orderMessage = "طلب جديد:\n";
+  
+  // إضافة المحافظة إلى رسالة الطلب
+  const selectedCity = document.getElementById('city').value;
+  orderMessage += "المحافظة: " + selectedCity + "\n";
+
+  for (let i = 0; i < cartItems.length; i++) {
+    let itemText = cartItems[i].textContent;
+    // استبدال "حذف" بفراغ في نص العنصر
+    itemText = itemText.replace('حذف', '');
+    orderMessage += itemText + "\n";
+  }
+  const totalPrice = document.getElementById('total-price').textContent;
+  orderMessage += totalPrice;
+  const whatsappLink = `https://wa.me/+201015832380?text=${encodeURIComponent(orderMessage)}`;
+  window.open(whatsappLink);
+}
+  
+  </script>
+</body>
 </html>

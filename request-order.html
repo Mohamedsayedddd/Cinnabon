@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
+<head>
   <style>
   body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
-  
+
 h1, h2, h3 {
   text-align: center;
 }
@@ -158,6 +158,13 @@ button:hover {
   <option value="الفيوم "> الفيوم </option>
   <!-- إضافة خيارات المحافظات الأخرى هنا -->
 </select>
+  <div id="customer-info">
+  <label for="customer-name">الاسم:</label>
+  <input type="text" id="customer-name" name="customer-name"><br><br>
+  
+  <label for="customer-address">العنوان:</label>
+  <input type="text" id="customer-address" name="customer-address"><br><br>
+</div>
   
   <button onclick="sendOrder()">ارسال الطلب</button>
 </div>
@@ -198,6 +205,12 @@ function sendOrder() {
   }
   let orderMessage = "طلب جديد:\n";
   
+  // إضافة معلومات الزبون
+  const customerName = document.getElementById('customer-name').value;
+  const customerAddress = document.getElementById('customer-address').value;
+  orderMessage += "الاسم: " + customerName + "\n";
+  orderMessage += "العنوان: " + customerAddress + "\n";
+  
   // إضافة المحافظة إلى رسالة الطلب
   const selectedCity = document.getElementById('city').value;
   orderMessage += "المحافظة: " + selectedCity + "\n";
@@ -213,7 +226,6 @@ function sendOrder() {
   const whatsappLink = `https://wa.me/+201015832380?text=${encodeURIComponent(orderMessage)}`;
   window.open(whatsappLink);
 }
-  
   </script>
 </body>
 </html>

@@ -20,41 +20,45 @@
        *{overflow: hidden;}
     
   }
-  #navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100px;
-  width: 100%;
-  background-color: sandybrown;
-  border-radius: 10px;
+#navbar {
+    height: 100px;
+    width: 100%;
+    background-color: sandybrown;
+    border-radius: 10px;
+    di;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* تضبيط المسافة بين العناصر */
 }
+
+.logo-btn-container {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    text-align:center;
+  margin-top:20px
+    
+}
+
 #navbar img {
-  width: 120px;
-  margin-left: 100px;
-  transition: .8s;
+    width: 120px;
 }
+
+#navbar .btn {
+    background-color: #e4b95b;
+    padding: 12px 12px;
+    border-radius: 12px;
+    color: #f9f9f9;
+    text-decoration: none;
+  margin-right:40px;
+}
+
+
 #navbar img:hover{
     transform:scale(1.1);
 }
-nav ul {
-  margin-right: 100px;
-}
-nav ul li .btn {
-  font-size: larger;
-  text-decoration: none;  
-  background-color: #e4b95b;
-  padding: 12px 10px;
-  border: solid 1px rgb(100, 97, 97);
-  border-radius: 12px;
-  color: #f9f9f9;
-}
-nav ul li .btn:hover{
-  background-color: #383848;
-}
-nav ul li{
-  list-style-type: none;
-}
+
+
 
   h1, h2, h3 {
     text-align: center;
@@ -170,7 +174,16 @@ nav ul li{
   }
 
   @media only screen and (max-width: 600px) {
-       
+  #navbar {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    
+  }
+
+  #navbar img {
+    margin: 20px 0;
+  }
     #menu {
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       grid-gap: 10px;
@@ -189,7 +202,7 @@ nav ul li{
     #menu {
       grid-template-columns: repeat(5, 1fr);
       grid-gap: 20px;
-    }
+   
 
     .item {
       width: auto;
@@ -197,7 +210,7 @@ nav ul li{
 
     /* تكبير حجم الخط داخل السلة والمدخلات */
     #cart, #cart-items, #cart-items li, #customer-info, #customer-info label, input[type="text"], input[type="tel"], #city, button[type="submit"] {
-      font-size: 18px;
+      font-size: 20px;
     }
   }
   </style>
@@ -208,17 +221,14 @@ nav ul li{
 </head>
 <body>
 
-  <header id="home">
+ <header id="home">
     <div id="navbar">
-        <img src="96478931547.png" alt="cinnabon" style="transition: .8s;">
-        <nav role="navigation">
-            <ul>
-                <li><a class="btn" href="index.html">الرجوع للقائمة الرئيسية</a></li>
-             
-            </ul>
-        </nav>
-        </div>  
-      </header>
+        <div class="logo-btn-container">
+            <img src="96478931547.png" alt="cinnabon" style="transition: .8s;">
+            <a class="btn" href="index.html">الرجوع للقائمة الرئيسية</a>
+        </div>
+    </div>
+</header>
 
 
 
@@ -232,6 +242,17 @@ nav ul li{
     <p>سعر: 45 جنيها</p>
     <button onclick="addToCart('وافل', 45)">اضف للسلة</button>
   </div>
+   <div class="item">
+    <h3>وافل فاكهة </h3>
+    <p>السعر: 50 جنيه</p>
+    <button onclick="addToCart('وافل فاكهة  ',50)">اضف للسلة</button>
+  </div>
+  <div class="item">
+    <h3>وافل اوريو </h3>
+    <p>السعر: 50 جنيه</p>
+    <button onclick="addToCart('وافل اوريو  ', 50)">اضف للسلة</button>
+  </div>
+  
   
   <div class="item">
     <h3>بوكس السعادة </h3>
@@ -280,6 +301,11 @@ nav ul li{
     <button onclick="addToCart('بوكس سمك', 60)">اضف للسلة</button>
   </div>
   <div class="item">
+    <h3>بوكس فاكهة </h3>
+    <p>وافل + موز + فراولة +بان كيك<br>السعر: 60 جنيه</p>
+    <button onclick="addToCart('بوكس فاكهة ', 60)">اضف للسلة</button>
+  </div>
+  <div class="item">
     <h3>سينابون</h3>
     <p>سعر: 45 جنيها</p>
     <button onclick="addToCart('سينابون', 45)">اضف للسلة</button>
@@ -294,15 +320,30 @@ nav ul li{
     <p>السعر: 45 جنيه</p>
     <button onclick="addToCart('تاكو ', 45)">اضف للسلة</button>
   </div>
+  <div class="item">
+    <h3>كشري حلو</h3>
+    <p> رز بلبن + فاج كيك + كشري +جلاش<br>السعر: 45جنيه</p>
+    <button onclick="addToCart('كشري حلو  ', 45)">اضف للسلة</button>
+  </div>
+  <div class="item">
+    <h3>جار </h3>
+    <p>السعر: 45 جنيه</p>
+    <button onclick="addToCart('جار  ', 45)">اضف للسلة</button>
+  </div>
    <div class="item">
     <h3>كريب رول </h3>
     <p>السعر: 45 جنيه</p>
     <button onclick="addToCart('كريب رول ', 45)">اضف للسلة</button>
   </div>
  <div class="item">
-    <h3>بوكس السعادة </h3>
-    <p>وافل + ميني دونات + ميني بان كيك - سعر: 60 جنيها</p>
-    <button onclick="addToCart(' وافل+ميني دونات+ميني بانكيك ', 60)">اضف للسلة</button>
+    <h3>طبق بان كيك </h3>
+    <p>  السعر: 45 جنيه</p>
+    <button onclick="addToCart(' طبق بان كيك   ', 45)">اضف للسلة</button>
+  </div>
+  <div class="item">
+    <h3>كرواسون</h3>
+    <p>السعر: 35 جنيه</p>
+    <button onclick="addToCart('بوكس السعادة ', 60)">اضف للسلة</button>
   </div>
   
   
@@ -363,7 +404,11 @@ nav ul li{
     <p> السعر: 15 جنيه</p>
     <button onclick="addToCart('فريسكا ', 15)">اضف للسلة</button>
   </div>
-  
+   <div class="item">
+    <h3>بولة ايس كريم </h3>
+    <p>15 جنيه</p>
+    <button onclick="addToCart('بولة ايس كريم  ', 15)">اضف للسلة</button>
+  </div>
   
   
   <!-- يمكنك إضافة المزيد من العناصر هنا -->
@@ -505,7 +550,7 @@ function calculateTotalPrice() {
   </script>
     <footer><a style="background-color: #e4b95b;
                 color:#fff;
-                transtion:5.s;
+                transition:.8s;
                 font-size: 18px;
                 border-radius: 5px;
                 padding: 5px 12px;

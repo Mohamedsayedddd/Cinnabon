@@ -121,10 +121,11 @@
 
         #menu .item {
             transition: .5s;
+            background-color: rgb(0, 0, 0, 0.3);
         }
 
         #menu .item:hover {
-            background: #ff9;
+            background: rgb(0, 0, 0, 0.0);
             transform: scale(1.05);
         }
 
@@ -228,10 +229,10 @@
         }
 
         #cart h2, #total-price {
-            color: #fff; /* لون النص الجديد */
-            background-color: rgba(0, 0, 0, 0.5); /* خلفية ملونة شفافة */
-            padding: 10px; /* هامش داخلي للمربع */
-            border-radius: 5px; /* زوايا مستديرة للمربع */
+            color: #fff; 
+            background-color: rgba(0, 0, 0, 0.5); 
+            padding: 10px; 
+            border-radius: 5px; 
         }
 
        #sauce-popup {
@@ -311,6 +312,10 @@
     z-index: 999;
     display: none;
 }
+h3,
+p{
+    color: #fff;
+}
     </style>
 </head>
 <body>
@@ -325,7 +330,7 @@
 </header>
 <div id="menu">
     <div class="item">
-        <img src="2cd7ea6040d6b609add634d256696ab6.jpg" width="100px;" style="border-radius:8px; height:110px;" value="وافل">
+        <img src="img-menu/وافل.png" width="100px;" style="border-radius:8px; height:110px;" value="وافل">
         <h3>وافل</h3>
         <p>سعر: 45 جنيها</p>
         <button onclick="toggleSauces('وافل', 45)">اضف للسلة</button>
@@ -339,6 +344,7 @@
     </div>
         
     <div class="item">
+        <img src="img-menu/وافل افكهة.png" alt="">
         <h3>وافل فاكهة </h3>
         <p>السعر: 50 جنيه</p>
         <button onclick="toggleSauces('وافل فاكهة  ',50)">اضف للسلة</button>
@@ -346,42 +352,49 @@
      
       
       <div class="item">
+        <img src="img-menu/بوكس3.png" alt="">
         <h3>بوكس السعادة </h3>
         <p>وافل + ميني دونات + ميني بان كيك - سعر: 60 جنيها</p>
         <button onclick="toggleSauces('بوكس وافل +ميني دونات+ميني بانكيك ', 60)">اضف للسلة</button>
       </div>
         
       <div class="item">
+        <img src="img-menu/وافل وبانكيك.png" alt="">
         <h3>بوكس السعادة </h3>
         <p>وافل + ميني بان كيك - سعر: 60 جنيها</p>
         <button onclick="toggleSauces('بوكس وافل+ميني بانكيك ', 60)">اضف للسلة</button>
       </div>
         
       <div class="item">
+        <img src="img-menu/بوكس بان كيك.png" alt="">
         <h3>بوكس السعادة </h3>
         <p>25 قطعة بان كيك - سعر: 60 جنيها</p>
         <button onclick="toggleSauces('بوكس بانكيك ', 60)">اضف للسلة</button>
       </div>
         
       <div class="item">
+        <img src="img-menu/بوكس دونات.png" alt="">
         <h3>بوكس السعادة </h3>
         <p>15 قطعة ميني دونات - سعر: 60 جنيها</p>
         <button onclick="toggleSauces('بوكس ميني دونات ', 60)">اضف للسلة</button>
       </div>
         
       <div class="item">
+        <img src="" alt="">
         <h3>بوكس السعادة </h3>
         <p>عيش كريب + وافل + بان كيك + فاج كيك + ايس كريم - سعر: 60 جنيها</p>
         <button onclick="toggleSauces('بوكس كريب ', 60)">اضف للسلة</button>
       </div>
         
       <div class="item">
+        <img src="img-menu/دونات وبانكيك.png" alt="">
         <h3>بوكس السعادة </h3>
         <p> ميني دونات +  ميني بان كيك - سعر: 60 جنيها</p>
         <button onclick="toggleSauces('بوكس ميني دونات+ميني بانكيك ', 60)">اضف للسلة</button>
       </div>
         
        <div class="item">
+        <img src="img-menu/بوكس العيلة.png" alt="">
         <h3>بوكس العيلة </h3>
         <p> وافل + سينابون + ميني دونات + ميني بان كيك<br>السعر: 110جنيه</p>
         <button onclick="toggleSauces('بوكس العيلة ', 110)">اضف للسلة</button>
@@ -394,30 +407,35 @@
       </div>
       
       <div class="item">
+        <img src="img-menu/بوكس سمك.png" alt="">
         <h3>بوكس سمك</h3>
         <p> 6 قطع سمك<br>+<br>فاج كيك<br>السعر: 60 جنيه</p>
         <button onclick="toggleSauces('بوكس سمك', 60)">اضف للسلة</button>
       </div>
         
       <div class="item">
+        <img src="img-menu/بوكس فاكهة.png" alt="">
         <h3>بوكس فاكهة </h3>
         <p>وافل + موز + فراولة +بان كيك<br>السعر: 60 جنيه</p>
         <button onclick="toggleSauces('بوكس فاكهة ', 60)">اضف للسلة</button>
       </div>
         
       <div class="item">
+        <img src="img-menu/سينابون.png" alt="">
         <h3>سينابون</h3>
         <p>سعر: 45 جنيها</p>
         <button onclick="toggleSauces('سينابون', 45)">اضف للسلة</button>
       </div>
         
       <div class="item">
+        <img src="img-menu/مولتن.png" alt="">
         <h3>مولتن كيك</h3>
         <p>سعر: 45 جنيها</p>
         <button onclick="toggleSauces('مولتن كيك', 45)">اضف للسلة</button>
       </div>
         
        <div class="item">
+        <img src="img-menu/تاكو.png" alt="">
         <h3>تاكو </h3>
         <p>السعر: 45 جنيه</p>
         <button onclick="toggleSauces('تاكو ', 45)">اضف للسلة</button>
@@ -436,12 +454,14 @@
       </div>
         
        <div class="item">
+        <img src="img-menu/كريب رول.png" alt="">
         <h3>كريب رول </h3>
         <p>السعر: 45 جنيه</p>
         <button onclick="toggleSauces('كريب رول ', 45)">اضف للسلة</button>
       </div>
         
      <div class="item">
+        <img src="img-menu/طبق بانكيك.png" alt="">
         <h3>طبق بان كيك </h3>
         <p>  السعر: 45 جنيه</p>
         <button onclick="toggleSauces(' طبق بان كيك   ', 45)">اضف للسلة</button>
@@ -455,36 +475,42 @@
 
       
       <div class="item">
+        <img src="img-menu/تشيز.png" alt="">
         <h3>تشيز كيك</h3>
         <p>سعر: 45 جنيها</p>
         <button onclick="toggleSauces('تشيز كيك', 45)">اضف للسلة</button>
       </div>
         
       <div class="item">
+        <img src="img-menu/دونات.png" alt="">
         <h3>دونات</h3>
         <p>سعر: 20 جنيها</p>
         <button onclick="toggleSauces('دونات', 20)">اضف للسلة</button>
       </div>
         
       <div class="item">
+        <img src="img-menu/كوكيز.png" alt="">
         <h3>كوكيز</h3>
         <p>سعر: 25 جنيها</p>
         <button onclick="toggleSauces('كوكيز', 25)">اضف للسلة</button>
       </div>
         
       <div class="item">
+        <img src="img-menu/ديسباسيتو.png" alt="">
         <h3>ديسباسيتو</h3>
         <p>سعر: 45 جنيها</p>
         <button onclick="toggleSauces('ديسباسيتو', 45)">اضف للسلة</button>
       </div>
         
       <div class="item">
+        <img src="img-menu/ميلك.png" alt="">
         <h3>ميلك تشيك</h3>
         <p>سعر: 45 جنيها</p>
         <button onclick="toggleSauces('ميلك تشيك', 45)">اضف للسلة</button>
       </div>
         
       <div class="item">
+        <img src="img-menu/طاجن.png" alt="">
         <h3>طاجن نوتيلا</h3>
         <p>سعر: 45 جنيها</p>
         <button onclick="toggleSauces('طاجن نوتيلا', 45)">اضف للسلة</button>
@@ -503,18 +529,21 @@
       </div>
         
        <div class="item">
+        <img src="img-menu/قشطوطة.png" alt="قشطوطة">
         <h3>قشطوطة </h3>
         <p> السعر:50جنيه</p>
         <button onclick="toggleSauces('قشطوطة ', 50)">اضف للسلة</button>
       </div>
         
        <div class="item">
+        <img src="img-menu/تفويلة.png" alt="تفويلة">
         <h3>تفويلة </h3>
         <p> السعر: 15 جنيه </p>
         <button onclick="toggleSauces('تفويلة ', 15)">اضف للسلة</button>
       </div>
         
        <div class="item">
+        <img src="img-menu/فريسكا.png" alt="فريسكا">
         <h3>فريسكا </h3>
         <p> السعر: 15 جنيه</p>
         <button onclick="toggleSauces('فريسكا ', 15)">اضف للسلة</button>

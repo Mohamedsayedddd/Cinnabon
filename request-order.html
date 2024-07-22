@@ -587,21 +587,22 @@ p{
     </ul>
     <label for="city">:اختر المحافظة</label>
     <select id="city" name="city">
-        <option style="text-align:center" value=""></option>
-        <option style="text-align:center" value="المنيا">المنيا</option>
-        <option style="text-align:center" value="بني سويف ">بني سويف </option>
-        <option style="text-align:center" value="الفيوم "> الفيوم </option>
-    </select>
-    <div id="customer-info">
-        <label for="customer-name">:الاسم</label>
-        <input style="text-align:center" type="text" id="customer-name" name="customer-name"><br><br>
-        <label for="customer-address">:العنوان</label>
-        <input style="text-align:center" type="text" id="customer-address" name="customer-address"><br><br>
+  <select id="city" name="city">
+            <option style="text-align:center" value=""></option>
+            <option style="text-align:center" value="المنيا">المنيا</option>
+            <option style="text-align:center" value="بني سويف">بني سويف</option>
+            <option style="text-align:center" value="الفيوم">الفيوم</option>
+        </select>
+        <div id="customer-info">
+            <label for="customer-name">:الاسم</label>
+            <input style="text-align:center" type="text" id="customer-name" name="customer-name"><br><br>
+            <label for="customer-address">:العنوان</label>
+            <input style="text-align:center" type="text" id="customer-address" name="customer-address"><br><br>
+        </div>
+        <label for="phone">:رقم الهاتف</label>
+        <input style="text-align:center" type="tel" id="phone" name="phone" maxlength="11">
+        <button onclick="sendOrder()">ارسال الطلب</button>
     </div>
-    <label for="phone">:رقم الهاتف</label>
-    <input style="text-align:center" type="tel" id="phone" name="phone" maxlength="11">
-    <button onclick="sendOrder()">ارسال الطلب</button>
-</div>
 <footer>
     <a style="background-color: #e4b95b;
                 color:#fff;
@@ -710,10 +711,11 @@ p{
     }
 
     function sendOrder() {
+        confunction sendOrder() {
         const customerName = document.getElementById('customer-name').value;
         const customerAddress = document.getElementById('customer-address').value;
         const phone = document.getElementById('phone').value;
-        const city = document.getElementById('city').value;
+        const city = document.getElementById('city').value.trim(); // إضافة trim للتأكد من إزالة المسافات الزائدة
         const totalPrice = document.getElementById('total-price').textContent.split(':')[1].trim();
         const cartItemsElements = document.getElementById('cart-items').getElementsByTagName('li');
 
@@ -740,9 +742,21 @@ p{
 
         orderDetails += `\nمجموع السعر بدون التوصيل: ${totalPrice} جنيه`;
 
+        // تحديد رقم واتساب بناءً على المحافظة
+        let whatsappNumber;
+        if (city === 'المنيا') {
+            whatsappNumber = "201015832380";
+        } else if (city === 'بني سويف') {
+            whatsappNumber = "201015832380";
+        } else if (city === 'الفيوم') {
+            whatsappNumber = "+201144747712";
+        } else {
+            alert("يرجى اختيار محافظة صحيحة.");
+            return;
+        }
+
         // تحويل النص إلى رابط واتساب
         const encodedOrderDetails = encodeURIComponent(orderDetails);
-        const whatsappNumber = "201015832380";
         const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedOrderDetails}`;
 
         // فتح الرابط في نافذة جديدة

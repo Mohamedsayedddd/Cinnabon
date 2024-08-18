@@ -320,9 +320,27 @@ h3,
 p{
     color: #fff;
 }
+   #disabled-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
+     <div id="disabled-message">
+        <h2>عذرا يرجي دفع الاشتراك لاستكمال الخدمة .</h2>
+       <video src="ضحكه محمد ثروت --❤️(480P).mp4" style="width:200px" controls="" autoplay="" >
+        <p>يرجى العودة في وقت لاحق.</p>
+    </div>
 <header id="home">
     <div id="navbar">
         <div class="logo-btn-container">
@@ -405,7 +423,6 @@ p{
       </div>
         
        <div class="item">
-               <img src="img-menu/بوكس السينابون.jpg" alt="بوكس السينابون">
         <h3>بوكس السينابون </h3>
         <p>   <br>السعر:150جنيه</p>
         <button onclick="toggleSauces('بوكس السينابون ', 150)">اضف للسلة</button>
@@ -585,21 +602,19 @@ p{
         <!-- هنا سيتم إضافة العناصر المحددة -->
         <p id="total-price">مجموع السعر : 0 جنيه</p>
     </ul>
-    <label for="city">:اختر المحافظة</label>
-    <select id="city" name="city">
+    <label for="city">اختر المحافظة</label>
+<select id="city" name="city">
             <option style="text-align:center" value=""></option>
             <option style="text-align:center" value="المنيا">المنيا</option>
             <option style="text-align:center" value="بني سويف">بني سويف</option>
             <option style="text-align:center" value="الفيوم">الفيوم</option>
         </select>
         <div id="customer-info">
-            <label for="customer-name">:الاسم</label>
+            <label for="customer-name">الاسم</label>
             <input style="text-align:center" type="text" id="customer-name" name="customer-name"><br><br>
-            <label for="customer-address">:العنوان</label>
-            <input style="text-align:center" type="text" id="customer-address" name="customer-address"><br><br>
-        </div>
-        <label for="phone">:رقم الهاتف</label>
-        <input style="text-align:center" type="tel" id="phone" name="phone" maxlength="11">
+                  </div>
+        <label for="phone">رقم الترابيزة</label>
+        <input style="text-align:center" type="tel" id="phone" name="phone" maxlength="1">
         <button onclick="sendOrder()">ارسال الطلب</button>
     </div>
 <footer>
@@ -706,7 +721,7 @@ p{
             const pricePerItem = parseInt(cartItems[i].getAttribute("data-price"));
             totalPrice += quantity * pricePerItem;
         }
-        document.getElementById('total-price').textContent = `مجموع السعر بدون التوصيل: ${totalPrice} جنيه`;
+        document.getElementById('total-price').textContent = ` مجموع السعر : ${totalPrice} جنيه`;
     }
 // استهداف زر إرسال الطلب
 
@@ -715,9 +730,9 @@ p{
 
    
     
+    
     function sendOrder() {
         const customerName = document.getElementById('customer-name').value;
-        const customerAddress = document.getElementById('customer-address').value;
         const phone = document.getElementById('phone').value;
         const city = document.getElementById('city').value.trim(); // إضافة trim للتأكد من إزالة المسافات الزائدة
         const totalPrice = document.getElementById('total-price').textContent.split(':')[1].trim();
@@ -730,13 +745,13 @@ p{
         }
 
         // تحقق من إذا كانت جميع الحقول المطلوبة ممتلئة
-        if (!customerName || !customerAddress || !phone || !city) {
+        if (!customerName || !phone || !city) {
             alert("يرجى ملء جميع الحقول المطلوبة.");
             return;
         }
 
         // تجميع تفاصيل الطلب
-        let orderDetails = `اسم العميل: ${customerName}\nالعنوان: ${customerAddress}\nرقم الهاتف: ${phone}\nالمحافظة: ${city}\n\nالطلب:\n`;
+        let orderDetails = `اسم العميل: ${customerName}\nرقم الهاتف: ${phone}\nالمحافظة: ${city}\n\nالطلب:\n`;
 
         for (let i = 0; i < cartItemsElements.length; i++) {
             const itemText = cartItemsElements[i].textContent.split(' - ')[0]; // استخراج اسم العنصر والصوص
@@ -751,9 +766,9 @@ p{
         if (city === 'المنيا') {
             whatsappNumber = "201015832380";
         } else if (city === 'بني سويف') {
-            whatsappNumber = "201015832380";
-        } else if (city === 'الفيوم') {
-            whatsappNumber = "+201144747712";
+            whatsappNumber = "201015832300";
+        } else if (city === ' الفيوم') {
+            whatsappNumber = "201015832399";
         } else {
             alert("يرجى اختيار محافظة صحيحة.");
             return;
@@ -767,5 +782,36 @@ p{
         window.open(whatsappLink, '_blank');
     }
 </script>
+<script>
+        // التاريخ والوقت الذي تريد تعطيل الموقع فيه (تغيير التاريخ والوقت حسب الحاجة)
+        // التاريخ والوقت بنظام الساعة الـ12 (AM/PM)
+        const disableDate = new Date('2025-09-24T03:00:00'); // مثال: 25 يوليو 2024، الساعة 03:00 صباحًا
+
+        // تحقق من التاريخ والوقت الحاليين
+        const now = new Date();
+
+        // تحويل الوقت الحالي إلى نظام الساعة الـ12
+        function to12HourFormat(date) {
+            let hours = date.getHours();
+            const minutes = date.getMinutes();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // الساعة 0 تكون 12 في نظام الساعة الـ12
+            const minutesStr = minutes < 10 ? '0' + minutes : minutes;
+            return `${hours}:${minutesStr} ${ampm}`;
+        }
+
+        // إذا كان التاريخ والوقت الحالي يطابقان أو يتجاوزان التاريخ والوقت المعينين
+        if (now >= disableDate) {
+            document.getElementById('disabled-message').style.display = 'block';
+            Array.from(document.body.children).forEach((child) => {
+                if (child.id !== 'disabled-message') {
+                    child.style.display = 'none';
+                }
+            });
+        } else {
+            console.log(`الوقت الحالي: ${to12HourFormat(now)}`);
+        }
+    </script>
 </body>
 </html>
